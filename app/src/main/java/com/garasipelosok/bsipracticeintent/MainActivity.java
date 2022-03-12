@@ -1,10 +1,13 @@
 package com.garasipelosok.bsipracticeintent;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +17,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnMoveActivityWithData;
     private Button btnMoveActivityWithObject;
     private Button btnDialPhone;
+    private Button btnMoveForResult;
+    private TextView tvResult;
+    //    pemberian REQUEST_CODE bebas, disesuaikan kebutuhan pengembangan
+    private int REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnDialPhone = (Button) findViewById(R.id.btn_dial_number);
         btnDialPhone.setOnClickListener(this);
+
+        btnMoveForResult = (Button) findViewById(R.id.btn_move_for_result);
+        btnMoveForResult.setOnClickListener(this);
+        tvResult = (TextView) findViewById(R.id.tv_result);
     }
 
     @Override
@@ -61,6 +72,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent dialPhoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phoneNumber));
                 startActivity(dialPhoneIntent);
                 break;
+            case R.id.btn_move_for_result:
+                Intent moveForResultIntent = new Intent(MainActivity.this,MoveActivityForResult.class);
+                startActivityForResult(moveForResultIntent,REQUEST_CODE);
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if (requestCode == REQUEST_CODE){
+            if (resultCode == MoveActivityForResult.RESULT_CODE) {
+                int selectedValue = data.getIntExtra(MoveActivityForResult.EXTRA_SELECTED_VALUE,0);
+                tvResult.setText("Hasil : "+selectedValue);
+            }
         }
     }
 }

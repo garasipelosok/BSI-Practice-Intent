@@ -39,4 +39,19 @@
         android:text="@string/dial_number"
         android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_move_for_result"
+        android:text="PINDAH ACTIVITY UNTUK RESULT"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_result"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:text="Hasil"/>
+
 </LinearLayout>
