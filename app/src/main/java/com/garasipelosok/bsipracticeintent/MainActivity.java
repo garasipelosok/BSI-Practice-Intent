@@ -1,6 +1,7 @@
 package com.garasipelosok.bsipracticeintent;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnMoveActivity;
     private Button btnMoveActivityWithData;
     private Button btnMoveActivityWithObject;
+    private Button btnDialPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnMoveActivityWithObject = (Button) findViewById(R.id.btn_move_activity_object);
         btnMoveActivityWithObject.setOnClickListener(this);
+
+        btnDialPhone = (Button) findViewById(R.id.btn_dial_number);
+        btnDialPhone.setOnClickListener(this);
     }
 
     @Override
@@ -50,6 +55,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent moveActivityWithObject = new Intent(MainActivity.this,MoveActivityWithObject.class);
                 moveActivityWithObject.putExtra(MoveActivityWithObject.EXTRA_PERSON,mPerson);
                 startActivity(moveActivityWithObject);
+                break;
+            case R.id.btn_dial_number:
+                String phoneNumber = "082110262110";
+                Intent dialPhoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phoneNumber));
+                startActivity(dialPhoneIntent);
                 break;
         }
     }

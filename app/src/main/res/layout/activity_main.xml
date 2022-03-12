@@ -32,4 +32,11 @@
         android:text="@string/pindah_activity_dengan_object"
         android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_dial_number"
+        android:text="@string/dial_number"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
 </LinearLayout>

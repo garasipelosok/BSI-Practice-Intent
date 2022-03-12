@@ -5,4 +5,5 @@
     <string name="berpindah_activity_dengan_data">BERPINDAH ACTIVITY DENGAN DATA</string>
     <string name="pindah_activity_dengan_object">PINDAH ACTIVITY DENGAN OBJECT</string>
     <string name="object_received">Object Received!</string>
+    <string name="dial_number">DIAL NUMBER</string>
 </resources>
