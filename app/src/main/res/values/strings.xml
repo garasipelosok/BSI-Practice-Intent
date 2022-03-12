@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">BSI Practice Intent</string>
     <string name="berpindah_activity">BERPINDAH ACTIVITY</string>
+    <string name="data_received">Data Received!</string>
+    <string name="berpindah_activity_dengan_data">BERPINDAH ACTIVITY DENGAN DATA</string>
+    <string name="pindah_activity_dengan_object">PINDAH ACTIVITY DENGAN OBJECT</string>
+    <string name="object_received">Object Received!</string>
 </resources>
